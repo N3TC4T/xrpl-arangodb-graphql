@@ -1,0 +1,11 @@
+{
+  "name": "xrpl-graphql",
+  "version": "1.0.0",
+  "description": "GraphQL XRPL",
+  "engines": {
+    "arangodb": "^3.7.10"
+  },
+  "author": "N3TC4T",
+  "license": "Apache 2",
+  "main": "index.js"
+}
