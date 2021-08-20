@@ -1,6 +1,6 @@
 const gql = require('graphql-sync');
 
-const {amountType} = require('../../fields')
+const {amountType, pathType} = require('../../fields')
 
 const Payment = new gql.GraphQLObjectType({
   name: 'Payment transaction',
@@ -24,9 +24,17 @@ const Payment = new gql.GraphQLObjectType({
         description: 'Arbitrary 256-bit hash representing a specific reason or identifier for this payment'
       },
       Paths: {
-        type: gql.GraphQLString,
-        description: 'Array of payment paths to be used for this transaction. Must be omitted for XRP-to-XRP transactions'
+        type: new gql.GraphQLList(pathType),
+        description: 'Array of payment paths to be used for this transaction'
       },
+      SendMax: {
+        type: amountType,
+        description: 'Highest amount of source currency this transaction is allowed to cost'
+      },
+      DeliverMin: {
+        type: amountType,
+        description: 'Minimum amount of destination currency this transaction should deliver'
+      }
     }
   }
 });

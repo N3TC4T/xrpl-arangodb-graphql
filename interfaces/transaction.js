@@ -4,6 +4,8 @@ const {
   transactionType
 } = require('../fields')
 
+const transactions = require('../objects/transactions')
+
 const transactionInterface = new gql.GraphQLInterfaceType({
   name: 'Transaction',
   description: 'Transaction in XRPL',
@@ -44,15 +46,7 @@ const transactionInterface = new gql.GraphQLInterfaceType({
     };
   },
   resolveType(tx) {
-    switch (tx.TransactionType) {
-      case 'case':
-        
-        break;
-      
-      default:
-        
-    }
-
+    return transactions[tx.TransactionType]
   }
 });
 

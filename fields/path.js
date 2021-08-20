@@ -21,7 +21,7 @@ const pathType = new gql.GraphQLObjectType({
         type: gql.GraphQLInt,
         description: 'An indicator of which other fields are present'
       },
-      type: {
+      type_hex: {
         type: gql.GraphQLString,
         description: 'A hexadecimal representation of the type field'
       }
